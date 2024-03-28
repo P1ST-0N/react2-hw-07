@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { fetchContacts } from "../../redux/contactsOps";
+import ContactForm from "../ContactForm/ContactForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,8 +20,8 @@ function App() {
   return (
     <div className={css.container}>
       <h1 className={css.mainTitle}>Phonebook</h1>
-      {/* <ContactForm />
-      <SearchBox /> */}
+      <ContactForm />
+      {/* <SearchBox /> */}
       <div className={css.containerLoader}>
         {isLoading && !error && (
           <ThreeDots
