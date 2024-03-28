@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { selectError, selectLoading } from "../../redux/selectors";
 import { fetchContacts } from "../../redux/contactsOps";
 import ContactForm from "../ContactForm/ContactForm";
+import ContactList from "../ContactList/ContactList";
+import SearchBox from "../SearchBox/SearchBox";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ function App() {
     <div className={css.container}>
       <h1 className={css.mainTitle}>Phonebook</h1>
       <ContactForm />
-      {/* <SearchBox /> */}
+      <SearchBox />
       <div className={css.containerLoader}>
         {isLoading && !error && (
           <ThreeDots
@@ -36,7 +38,7 @@ function App() {
           />
         )}
       </div>
-      {/* <ContactList /> */}
+      <ContactList />
     </div>
   );
 }

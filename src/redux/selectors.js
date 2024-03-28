@@ -8,7 +8,13 @@ export const selectError = (state) => state.contacts.error;
 export const selectFilteredContacts = createSelector(
   [selectNameFilter, selectContacts],
   (filterContacts, contacts) => {
-    contacts.filter((contact) =>
+    // Проверяем, является ли contacts массивом
+    if (!Array.isArray(contacts)) {
+      return [];
+    }
+
+    // Применяем фильтр только если contacts является массивом
+    return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filterContacts.trim().toLowerCase())
     );
   }
